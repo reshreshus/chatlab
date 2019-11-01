@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const model = new Schema({
   chat: { type: Schema.Types.ObjectId, ref: 'chat' },
-  sender: { type: Schema.Types.ObjectId, ref: 'user' },
+  sender: { type: String },
   text: { type: String }
 })
 

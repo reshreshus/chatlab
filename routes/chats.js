@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
 //Find messages of a chat
 router.get('/:id', async (req, res) => {
   const chat = await Chat.findById(req.params.id)
-  const messages = Message.find({ chat: chat._id })
+  const messages = await Message.find({ chat: chat._id })
   res.json({ messages })
 })
 
@@ -41,9 +41,11 @@ router.post('/:id', async (req, res) => {
     name: req.body.name
   })
 
+  console.log(user);
+
   const newMsg = new Message({
     chat: chat._id,
-    sender: user._id,
+    sender: req.body.name,
     text: req.body.text
   })
 
