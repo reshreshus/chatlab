@@ -10,6 +10,25 @@ router.get('/', async (req, res) => {
   res.json({ chats });
 })
 
+router.post('/', async (req, res) => {
+  const chat = new Chat({
+    users: []
+  })
+  await chat.save()
+  res.json({ status: 'added a chat'})
+})
+
+// router.post('/user-on-chat/:id', async(req, res) => {
+//   const chat = Chat.findById(req.param.id)
+//   const user = User.find({
+//     name: req.body.name
+//   })
+//   chat.
+//   chat
+// })
+
+
+//Find messages of a chat
 router.get('/:id', async (req, res) => {
   const chat = await Chat.findById(req.params.id)
   const messages = Message.find({ chat: chat._id })
