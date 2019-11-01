@@ -15,7 +15,7 @@ app.use(cors());
 
 /* Import db */
 const mongoose = require('mongoose');
-const db = mongoose.connect('mongodb://localhost:27017/chat');
+const db = mongoose.connect('mongodb://172.31.35.98,172.31.8.172,172.31.14.209:27017/chat');
 
 app.use(logger('dev'));
 app.use(express.json());
